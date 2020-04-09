@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    count: 0,
     user: {id: 'user_001', name: 'User 001'},
     categories: ['sustainability', 'nature', 'animal welfare', 'housing', 'education', 'food', 'community'],
     todos: [ 
@@ -20,19 +21,23 @@ export default new Vuex.Store({
           ]
   },
   getters: {
-    getCategoriesLength: state =>{
+    categoriesLength: state =>{
       return state.categories.length
     },
-    getDoneTodos : state=>{
+    doneTodos : state=>{
       return state.todos.filter(todo=>todo.done)
     },
-    getActiveTodosCount: (state,getters)=>{
+    activeTodosCount: (state,getters)=>{
       return state.todos.length - getters.doneTodos.length
     },
     getEventById:(state) => (id) => {
       return state.events.find(event.id===id)
     }
   },
-  mutations: {},
+  mutations: {
+    INCREMENT_COUNT : (state,value) =>{
+      state.count += value
+    }
+  },
   actions: {}
 })
