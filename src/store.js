@@ -17,7 +17,13 @@ export default new Vuex.Store({
             {
               id: 2,
               desc: 'Feed the dogs!',
-              done:true}
+              done:true
+            },
+            {
+              id: 3,
+              desc: 'Buy milk!',
+              done:true
+            
           ]
   },
   getters: {
