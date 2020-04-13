@@ -45,5 +45,11 @@ export default new Vuex.Store({
       state.count += value
     }
   },
-  actions: {}
+  actions: {
+    updateCount({state,commit}, incrementBy){
+      if(state.user){
+        commit('INCREMENT_COUNT',incrementBy)
+      }
+    }
+  }
 })
