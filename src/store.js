@@ -23,7 +23,7 @@ export default new Vuex.Store({
               id: 3,
               desc: 'Buy milk!',
               done:true
-            
+            }
           ]
   },
   getters: {
