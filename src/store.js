@@ -48,6 +48,9 @@ export default new Vuex.Store({
     },
     ADD_EVENT(state,event){
       state.events.push(event)
+    },
+    SET_EVENTS(state,events){
+      state.events = events
     }
   },
   actions: {
@@ -62,6 +65,15 @@ export default new Vuex.Store({
             .then(()=>{
               commit('ADD_EVENT', event.data)  
             })
+    },
+    fetchEvents({commit}, {perPage, page}){
+      EventService.getEvents(perPage, page)
+        .then(response=>{
+          commit('SET_EVENTS', response.data)
+        })
+        .catch(error=>{
+          console.log('There was an error:', error.response)
+        })
     }
   }
 })

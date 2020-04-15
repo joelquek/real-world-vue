@@ -197,6 +197,20 @@
       "date": "2020-04-02T13:26:00.000Z",
       "time": "14:00",
       "attendees": []
+    },
+    {
+      "id": 475872,
+      "category": "education",
+      "organizer": {
+        "id": "user_001",
+        "name": "User 001"
+      },
+      "title": "2e",
+      "description": "2d2",
+      "location": "lll",
+      "date": "2020-04-11T11:55:00.000Z",
+      "time": "21:00",
+      "attendees": []
     }
   ]
 }
