@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     eventsTotal: 0,
     events: [],
+    event:{},
     count: 0,
     user: {id: 'user_001', name: 'User 001'},
     categories: ['sustainability', 'nature', 'animal welfare', 'housing', 'education', 'food', 'community'],
@@ -55,6 +56,9 @@ export default new Vuex.Store({
     },
     SET_EVENTS_TOTAL(state,value){
       state.eventsTotal = value
+    },
+    SET_EVENT(state,event){
+      state.event = event
     }
   },
   actions: {
@@ -77,8 +81,17 @@ export default new Vuex.Store({
           commit('SET_EVENTS', response.data)
         })
         .catch(error=>{
-          console.log('There was an error:', error.response)
+          console.log('There was an error: ', error.response)
         })
+    },
+    fetchEvent({commit}, id){
+      EventService.getEvent(id)
+      .then(response =>{
+        commit('SET_EVENT', response.data)
+      })
+      .catch(error=>{
+        console.log('There was an error: ', error.response)
+      })
     }
   }
 })
