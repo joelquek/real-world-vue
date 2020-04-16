@@ -31,18 +31,10 @@ export default new Vuex.Store({
           ]
   },
   getters: {
-    categoriesLength: state =>{
-      return state.categories.length
-    },
-    doneTodos : state=>{
-      return state.todos.filter(todo=>todo.done)
-    },
-    activeTodosCount: (state,getters)=>{
-      return state.todos.length - getters.doneTodos.length
-    },
-    getEventById:(state) => (id) => {
-      return state.events.find(event.id===id)
-    }
+    categoriesLength: state => state.categories.length,
+    doneTodos : state=> state.todos.filter(todo=>todo.done),
+    activeTodosCount: (state,getters)=> state.todos.length - getters.doneTodos.length,
+    getEventById:(state) => (id) => state.events.find(event => event.id===id)
   },
   mutations: {
     INCREMENT_COUNT : (state,value) =>{
@@ -84,14 +76,21 @@ export default new Vuex.Store({
           console.log('There was an error: ', error.response)
         })
     },
-    fetchEvent({commit}, id){
-      EventService.getEvent(id)
-      .then(response =>{
-        commit('SET_EVENT', response.data)
-      })
-      .catch(error=>{
-        console.log('There was an error: ', error.response)
-      })
+    fetchEvent({commit,getters}, id){
+
+      var event = getters.getEventById(id)
+
+      if(event){
+        commit('SET_EVENT', event)
+      }else{
+        EventService.getEvent(id)
+        .then(response =>{
+          commit('SET_EVENT', response.data)
+        })
+        .catch(error=>{
+          console.log('There was an error: ', error.response)
+        })
+      }
     }
   }
 })
