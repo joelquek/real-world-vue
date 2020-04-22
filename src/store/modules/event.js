@@ -7,7 +7,7 @@ export const state = {
 }
 
 export const mutations ={
-    INCREMENT_COUNT : (state,value) =>{
+      INCREMENT_COUNT : (state,value) =>{
         state.count += value
       },
       ADD_EVENT(state,event){
@@ -60,7 +60,7 @@ export const actions = {
       }
 }
 
-export const getter = {
+export const getters = {
     categoriesLength: state => state.categories.length,
     doneTodos : state=> state.todos.filter(todo=>todo.done),
     activeTodosCount: (state,getters)=> state.todos.length - getters.doneTodos.length,
