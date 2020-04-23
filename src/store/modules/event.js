@@ -25,11 +25,13 @@ export const mutations ={
 }
 
 export const actions = {
-      createEvent({commit},event){
+      createEvent({commit, rootState},event){
+        console.log(rootState)
+        console.log('User creating Event is ' + rootState.user.user.name)
         return EventService
               .postEvent(event)
               .then(()=>{
-                commit('ADD_EVENT', event.data)  
+                commit('ADD_EVENT', event)  
               })
       },
       fetchEvents({commit}, {perPage, page}){
