@@ -30,12 +30,12 @@ import {mapState, mapActions} from 'vuex'
 export default {
   props: ['id'], //https://router.vuejs.org/guide/essentials/passing-props.html
   created() {
-    this.$store.dispatch('event/fetchEvent',this.id)
+    this.fetchEvent(this.id) //use mapActions helpers
   },
   computed: mapState({
     event: state => state.event.event
   }),
-  methods: mapActions('event', ['fetchEvent']) //(namespace, [actions])
+  methods: mapActions('event', ['fetchEvent']) //(namespace, [actions]) 
 }
 </script>
 <style scoped>
