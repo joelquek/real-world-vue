@@ -1,5 +1,6 @@
 <template>
-    <div class="notification-bar">
+    <div class="notification-bar"
+        :class="notificationTypeClass">
         <p>{{ notification.message }}</p>
     </div>
 </template>
@@ -10,6 +11,11 @@ export default {
         notification : {
             type: Object, 
             required: true
+        }
+    },
+    computed:{
+        notificationTypeClass(){
+            return `-text-${this.notification.type}`
         }
     }
 }
