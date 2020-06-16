@@ -24,10 +24,15 @@ const router = new Router({
       component: EventShow,
       props: true,
       beforeEnter(routeTo, routeFrom, next){
-        store.dispatch('event/fetchEvent', routeTo.params.id).then(event=>{
+        store
+        .dispatch('event/fetchEvent', routeTo.params.id)
+        .then(event=>{
           routeTo.params.event = event
           next()
        })
+       .catch( ()=> next({ 
+          name: '404', params: {resource : 'event'}
+        }))
       }
     },
     {
@@ -39,10 +44,11 @@ const router = new Router({
       path: '/404',
       name: '404',
       component: NotFound,
+      props: true
     },
     {
       path: '*',
-      redirect: { name : '404'}
+      redirect: { name : '404', params: {resource: 'page'}}
     }
   ]
 })
