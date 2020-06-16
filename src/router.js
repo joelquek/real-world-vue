@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import EventCreate from './views/EventCreate.vue'
 import EventList from './views/EventList.vue'
 import EventShow from './views/EventShow.vue'
+import NotFound from './views/NotFound.vue'
 import NProgress from 'nprogress'
 import store from './store/store'
 
@@ -33,6 +34,15 @@ const router = new Router({
       path: '/event/create',
       name: 'event-create',
       component: EventCreate
+    },
+    {
+      path: '/404',
+      name: '404',
+      component: NotFound,
+    },
+    {
+      path: '*',
+      redirect: { name : '404'}
     }
   ]
 })
