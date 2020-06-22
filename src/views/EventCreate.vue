@@ -5,10 +5,7 @@
       <option v-for="cat in categories" :key="cat">{{cat}}</option>
     </select>
     <h3>Name describe your event</h3>
-    <div>
-      <label>Title</label>
-      <input v-model="event.title" type="text" placeholder="Add an event title" />
-    </div>
+    <BaseInput label="Title" />
     <div class="field">
       <label>Description</label>
       <input v-model="event.description" type="text" placeholder="Add a description" />
@@ -35,9 +32,11 @@
 <script>
 import Datepicker from 'vuejs-datepicker'
 import NProgress from 'nprogress'
+import BaseInput from '@/components/BaseInput.vue'
 export default {
   components:{
-    Datepicker
+    Datepicker,
+    BaseInput
   },
   data(){
     const times = []
