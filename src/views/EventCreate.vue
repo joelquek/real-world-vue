@@ -5,7 +5,10 @@
       <option v-for="cat in categories" :key="cat">{{cat}}</option>
     </select>
     <h3>Name describe your event</h3>
-    <BaseInput label="Title" />
+    <BaseInput 
+      label="Title" 
+      v-model="event.title"
+    />
     <div class="field">
       <label>Description</label>
       <input v-model="event.description" type="text" placeholder="Add a description" />

@@ -2,7 +2,8 @@
     <div class='field'>
         <label v-if="label">{{ label }}</label>
         <input 
-            v-model="event.title" 
+            :value="value"
+            @input="updateValue" 
             type="text" 
             placeholder="Add an event title"
         />
@@ -12,7 +13,13 @@
 <script>
 export default {
     props :{
-        label: String
+        label: String,
+        value: [String, Number]
+    },
+    methods:{
+        updateValue(event){
+            this.$emit('input', event.target.value)
+        }
     }
 }
 </script>
