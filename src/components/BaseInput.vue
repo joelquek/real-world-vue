@@ -2,16 +2,17 @@
     <div class='field'>
         <label v-if="label">{{ label }}</label>
         <input 
+            :id="label"
             :value="value"
             @input="updateValue" 
-            type="text" 
-            placeholder="Add an event title"
+            v-bind="$attrs"
         />
     </div>
 </template>
 
 <script>
 export default {
+    inheritAttrs: false,
     props :{
         label: String,
         value: [String, Number]

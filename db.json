@@ -309,6 +309,20 @@
       "date": "2020-06-04T08:14:00.000Z",
       "time": "18:00",
       "attendees": []
+    },
+    {
+      "id": 75693,
+      "category": "housing",
+      "organizer": {
+        "id": "user002",
+        "name": "User002"
+      },
+      "title": "Hello",
+      "description": "New Event",
+      "location": "Cheonan",
+      "date": "2020-06-03T13:14:00.000Z",
+      "time": "3:00",
+      "attendees": []
     }
   ]
 }
