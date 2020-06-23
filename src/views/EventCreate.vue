@@ -1,9 +1,10 @@
 <template>
   <form v-on:submit.prevent="createEvent">
-    <label>Select a category</label>
-    <select v-model="event.category">
-      <option v-for="cat in categories" :key="cat">{{cat}}</option>
-    </select>
+    <BaseSelect
+      v-model="event.category"
+      label="select a category"
+      :options="categories"
+    />
     <h3>Name describe your event</h3>
     <BaseInput 
       label="Title" 
@@ -45,10 +46,12 @@
 import Datepicker from 'vuejs-datepicker'
 import NProgress from 'nprogress'
 import BaseInput from '@/components/BaseInput.vue'
+import BaseSelect from '@/components/BaseSelect.vue'
 export default {
   components:{
     Datepicker,
-    BaseInput
+    BaseInput,
+    BaseSelect
   },
   data(){
     const times = []
