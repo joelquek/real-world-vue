@@ -323,6 +323,34 @@
       "date": "2020-06-03T13:14:00.000Z",
       "time": "3:00",
       "attendees": []
+    },
+    {
+      "id": 322146,
+      "category": "education",
+      "organizer": {
+        "id": "user002",
+        "name": "User002"
+      },
+      "title": "Hello World",
+      "description": "Hello Description",
+      "location": "HACKATHON",
+      "date": "2020-06-10T12:18:00.000Z",
+      "time": "5:00",
+      "attendees": []
+    },
+    {
+      "id": 992343,
+      "category": "community",
+      "organizer": {
+        "id": "user002",
+        "name": "User002"
+      },
+      "title": "Hello World",
+      "description": "sss",
+      "location": "ddd",
+      "date": "2020-06-02T12:21:00.000Z",
+      "time": "3:00",
+      "attendees": []
     }
   ]
 }
